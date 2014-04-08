@@ -1,0 +1,5 @@
+<b><%= item.name %></b>
+  <span><%= item.price %>gp</span>
+  <span><%= item.category.name %></span>
+  <span><%= item.weight %>lbs</span>
+<span><%= number_to_currency(item.price.to_f / 100) %></span>

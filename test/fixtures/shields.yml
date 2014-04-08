@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  armorBonus: 1
+  armorCheckPenalty: 1
+  enhancementBonus: 1
+  masterwork: false
+
+two:
+  armorBonus: 1
+  armorCheckPenalty: 1
+  enhancementBonus: 1
+  masterwork: false

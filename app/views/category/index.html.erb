@@ -1,0 +1,12 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody class="body">
+    <% @categories.each do |category| %>
+      <tr><%= category.name %></tr>
+    <% end %>
+  </tbody>
+</table>

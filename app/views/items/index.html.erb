@@ -1,0 +1,15 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody class="body">
+    <% @items.each do |item| %>
+      <div class="item">
+        <%= render item %>
+        <span><%= link_to 'Show', item %></span>
+      </div>
+    <% end %>
+  </tbody>
+</table>
