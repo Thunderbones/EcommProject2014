@@ -1,5 +1,8 @@
 EcomProject2014::Application.routes.draw do
   root :to => 'items#index'
+  get 'items/addToCart/:id' => 'items#addToCart'
+  get 'items/viewCart' => 'items#viewCart'
+  get 'items/updated' => 'items#updatedItemsIndex'
   get 'items/new' => 'items#newItemsIndex'
   get 'items/:id' => 'items#show', as: :item
   get 'categories/:id' => 'items#categoryIndex', as: 'category'
