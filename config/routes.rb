@@ -1,5 +1,6 @@
 EcomProject2014::Application.routes.draw do
   root :to => 'items#index'
+  get 'items/new' => 'items#newItemsIndex'
   get 'items/:id' => 'items#show', as: :item
   get 'categories/:id' => 'items#categoryIndex', as: 'category'
   # The priority is based upon order of creation: first created -> highest priority.

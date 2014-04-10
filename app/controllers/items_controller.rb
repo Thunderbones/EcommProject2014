@@ -9,4 +9,8 @@ class ItemsController < ApplicationController
     @items = Category.find(params[:id]).items
     render action: :index
   end
+  def newItemsIndex
+    @items = Item.where("created_at > ?", Date.yesterday())
+    render action: :index
+  end
 end

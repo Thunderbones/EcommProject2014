@@ -1,7 +1,12 @@
 <div id="header">
   <h1>Weapon Emporium</h1>
+  <span><%= link_to 'All', action: 'index' %></span>
   <% @categories.each do |c| %>
    <span><%= link_to c.name, c %></span>
   <% end %>
+  <p>
+    <span><%= link_to 'New', action: 'newItemsIndex' %></span>
+    <span>On Sale</span>
+  </p>
   <%= render 'shared/searchBar' %>
 </div>
