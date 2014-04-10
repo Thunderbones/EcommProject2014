@@ -1,7 +1,7 @@
-<header>
-  <div class="left">
-    <% @categories.each do |category| %>
-      <p><%= category.name %></p>
-    <% end %>
-  </div>
-</header>
+<div id="header">
+  <h1>Weapon Emporium</h1>
+  <% @categories.each do |c| %>
+   <span><%= link_to c.name, c %></span>
+  <% end %>
+  <%= render 'shared/searchBar' %>
+</div>

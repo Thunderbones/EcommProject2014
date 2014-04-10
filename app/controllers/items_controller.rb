@@ -5,4 +5,8 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
   end
+  def categoryIndex
+    @items = Category.find(params[:id]).items
+    render action: :index
+  end
 end
