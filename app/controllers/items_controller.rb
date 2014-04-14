@@ -18,12 +18,20 @@ class ItemsController < ApplicationController
     render action: :index
   end
   def addToCart
-    #add current item to session
-    
+    # add current item to session
+    session[:cart] << Item.find(params[:id])
     redirect_to action: :viewCart
   end
   def viewCart
     
-    #show all items in session
+    # show all items in session
+  end
+  def search # Performs a search
+    
+  end
+  def search_results # displays search
+    keywords = params[:user_keywords]
+    @items = Item.where("name LIKE ?", "%#{keywords}%").page(params[:page])
+    render action: :index
   end
 end

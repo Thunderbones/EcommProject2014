@@ -1,4 +1,6 @@
 EcomProject2014::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root :to => 'items#index'
   get 'items/addToCart/:id' => 'items#addToCart'
   get 'items/viewCart' => 'items#viewCart'
@@ -6,6 +8,7 @@ EcomProject2014::Application.routes.draw do
   get 'items/new' => 'items#newItemsIndex'
   get 'items/:id' => 'items#show', as: :item
   get 'categories/:id' => 'items#categoryIndex', as: 'category'
+  get 'search' => 'items#search_results', as: 'search_results'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

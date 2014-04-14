@@ -1,11 +1,16 @@
 <table>
   <%= paginate @items %>
   <tbody class="body">
-    <% @items.each do |item| %>
-      <div class="item">
-        <%= render item %>
-        <span><%= link_to 'Show', item %></span>
-      </div>
+    <% if(@items.count < 1) %>
+      <p class="item">No Items</p>
+    <% else %>
+      <% @items.each do |item| %>
+    
+        <div class="item">
+          <%= render item %>
+          <span><%= link_to 'Show', item %></span>
+        </div>
+      <% end %>
     <% end %>
   </tbody>
 </table>
