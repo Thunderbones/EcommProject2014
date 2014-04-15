@@ -1,16 +1,12 @@
-<table>
-  <%= paginate @items %>
-  <tbody class="body">
-    <% if(@items.count < 1) %>
-      <p class="item">No Items</p>
-    <% else %>
-      <% @items.each do |item| %>
-    
-        <div class="item">
-          <%= render item %>
-          <span><%= link_to 'Show', item %></span>
-        </div>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
+<%= paginate @items %>
+<% if(@items.size < 1) %>
+  <p class="item">No Items</p>
+<% else %>
+  <% @items.each do |item| %>
+    <div class="item">
+      <%= render item %>
+      <span><%= link_to 'Show', item %></span>
+      <%# If in the view cart, add a delete from cart option%>
+    </div>
+  <% end %>
+<% end %>

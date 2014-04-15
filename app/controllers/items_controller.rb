@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.order("slot").page(params[:page]).per(20)
+    @items = Item.order("slot").page(params[:page]).per(18)
   end
   def show
     @item = Item.find(params[:id])
@@ -17,17 +17,19 @@ class ItemsController < ApplicationController
     @items = Item.where("updated_at > ?", Date.yesterday()).page(params[:page])
     render action: :index
   end
-  def addToCart
+  def add_to_cart
     # add current item to session
-    session[:cart] << Item.find(params[:id])
-    redirect_to action: :viewCart
+    session[:cart] << params[:id]
+    redirect_to action: :view_cart
   end
-  def viewCart
-    
+  def view_cart
+    @items = Array.new
+    session[:cart].each {|item|
+      @items << Item.find(item)
+    }
+    @items = Kaminari.paginate_array(@items).page(params[:page])
+    render action: :index
     # show all items in session
-  end
-  def search # Performs a search
-    
   end
   def search_results # displays search
     keywords = params[:user_keywords]

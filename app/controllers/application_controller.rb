@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :load_categories
+  before_action :load_categories, :load_session
   def load_categories
     @categories = Category.all
     @categoryNames = Array.new
@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
     @categories.each {|c|
       @categoryNames << c.name
     }
+  end
+  def load_session
+    session[:cart] ||= Array.new
   end
 
 end

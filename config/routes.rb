@@ -1,9 +1,9 @@
 EcomProject2014::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root :to => 'items#index'
-  get 'items/addToCart/:id' => 'items#addToCart'
-  get 'items/viewCart' => 'items#viewCart'
+  root :to => 'items#index', as: 'index'
+  get 'items/add_to_cart/:id' => 'items#add_to_cart'
+  get 'items/view_cart' => 'items#view_cart', as: 'view_cart'
   get 'items/updated' => 'items#updatedItemsIndex'
   get 'items/new' => 'items#newItemsIndex'
   get 'items/:id' => 'items#show', as: :item
