@@ -31,7 +31,9 @@ class ItemsController < ApplicationController
   def view_cart
     @order = Order.new
     @items = []
+    @price = 0
     session[:cart].each do |item|
+      @price += (Item.find(item).price.to_f / 100)
       @items << Item.find(item)
     end
     @items = Kaminari.paginate_array(@items).page(params[:page])
@@ -48,5 +50,10 @@ class ItemsController < ApplicationController
                           "%#{keywords}%", "%#{category}%").page(params[:page])
     end
     render action: :index
+  end
+
+  def create_order
+    @order = Order.new(order_params)
+    @user = User.new(order_params)
   end
 end

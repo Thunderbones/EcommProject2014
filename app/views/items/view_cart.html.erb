@@ -1,1 +1,27 @@
 <%= render 'index' %>
+<p class="item">Total is: <%= number_to_currency(@price)%></p>
+<%= form_for @order, url: {action: 'create_order'} do |o| %>
+  <div>
+    <%= o.label 'Name: ' %>
+    <%= o.text_field :name %>
+  </div>
+  <div>
+    <%= o.label 'Address: ' %>
+    <%= o.text_field :address %>
+  </div>
+  <div>
+    <%= o.label 'City: ' %>
+    <%= o.text_field :city %>
+  </div>
+  <div>
+    <%= o.label 'Country: ' %>
+    <%= o.text_field :country %>
+  </div>
+  <div>
+    <%= o.label 'Postal Code: ' %>
+    <%= o.text_field :postal_code %>
+  </div>
+  <div>
+    <%= o.submit 'Order' %>
+  </div>
+<% end %>

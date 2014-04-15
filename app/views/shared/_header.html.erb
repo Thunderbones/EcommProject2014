@@ -5,8 +5,8 @@
    <span><%= link_to c.name, c %></span>
   <% end %>
   <p>
-    <span><%= link_to 'New', action: 'newItemsIndex' %></span>
-    <span><%= link_to 'Recently Updated', action: 'updatedItemsIndex' %></span>
+    <span><%= link_to 'New', action: 'new_items_index' %></span>
+    <span><%= link_to 'Recently Updated', action: 'updated_items_index' %></span>
     <span><%= link_to 'View Cart', view_cart_path %></span>
   </p>
   <%= render 'shared/searchBar' %>
