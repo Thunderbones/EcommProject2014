@@ -7,7 +7,7 @@ EcomProject2014::Application.routes.draw do
   get 'items/updated' => 'items#updatedItemsIndex'
   get 'items/new' => 'items#newItemsIndex'
   get 'items/:id' => 'items#show', as: :item
-  get 'categories/:id' => 'items#categoryIndex', as: 'category'
+  get 'categories/:id' => 'items#category_index', as: 'category'
   get 'search' => 'items#search_results', as: 'search_results'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

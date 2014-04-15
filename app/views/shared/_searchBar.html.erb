@@ -2,6 +2,7 @@
   <%= form_tag search_results_path, method: "get" do %>
     <%= label_tag(:user_keywords, 'Search: ') %>
     <%= text_field_tag(:user_keywords) %>
+    <%= select_tag :my_options, options_for_select(@categoryNames)%>
     <%= submit_tag("Search") %>
   <% end %>
 </div>

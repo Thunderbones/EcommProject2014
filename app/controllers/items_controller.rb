@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
   end
-  def categoryIndex
+  def category_index
     @items = Category.find(params[:id]).items.page(params[:page])
     render action: :index
   end
@@ -31,7 +31,12 @@ class ItemsController < ApplicationController
   end
   def search_results # displays search
     keywords = params[:user_keywords]
-    @items = Item.where("name LIKE ?", "%#{keywords}%").page(params[:page])
+    category = params[:my_options]
+    if category == 'All'
+      @items = Item.where("name LIKE ?", "%#{keywords}%").page(params[:page])
+    else
+      @items = Item.where("name LIKE ? AND slot LIKE ?", "%#{keywords}%", "%#{category}%").page(params[:page])
+    end
     render action: :index
   end
 end
