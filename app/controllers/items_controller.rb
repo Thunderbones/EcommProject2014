@@ -23,12 +23,12 @@ class ItemsController < ApplicationController
     redirect_to action: :view_cart
   end
   def view_cart
+    @order = Order.new
     @items = Array.new
     session[:cart].each {|item|
       @items << Item.find(item)
     }
     @items = Kaminari.paginate_array(@items).page(params[:page])
-    render action: :index
     # show all items in session
   end
   def search_results # displays search
