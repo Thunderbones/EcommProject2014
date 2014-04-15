@@ -6,14 +6,14 @@ class ApplicationController < ActionController::Base
   before_action :load_categories, :load_session
   def load_categories
     @categories = Category.all
-    @categoryNames = Array.new
-    @categoryNames << 'All'
-    @categories.each {|c|
-      @categoryNames << c.name
-    }
-  end
-  def load_session
-    session[:cart] ||= Array.new
+    @category_names = []
+    @category_names << 'All'
+    @categories.each do |c|
+      @category_names << c.name
+    end
   end
 
+  def load_session
+    session[:cart] ||= []
+  end
 end
