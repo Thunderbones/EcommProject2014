@@ -15,5 +15,6 @@ class ApplicationController < ActionController::Base
 
   def load_session
     session[:cart] ||= []
+    session[:price] ||= 0
   end
 end

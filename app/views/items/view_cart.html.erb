@@ -1,6 +1,6 @@
 <%= render 'index' %>
 <p class="item">Total is: <%= number_to_currency(@price)%></p>
-<%= form_for @order, url: {action: 'create_order'} do |o| %>
+<%= form_for(@order) url: {action: 'create_order'} do |o| %>
   <div>
     <%= o.label 'Name: ' %>
     <%= o.text_field :name %>
