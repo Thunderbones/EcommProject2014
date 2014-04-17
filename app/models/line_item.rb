@@ -1,4 +1,4 @@
 class LineItem < ActiveRecord::Base
-  has_one :user
-  has_one :order
+  belongs_to :order
+  belongs_to :item
 end

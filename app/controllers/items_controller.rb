@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   end
 
   def view_cart
-    @order = Order.new
+    @user = User.new
     @items = []
     @price = 0
     session[:cart].each do |item|
@@ -54,15 +54,26 @@ class ItemsController < ApplicationController
   end
 
   def create_order
-    @user = User.new(order_params)
-    @order = Order.new(order_params , price: session[:price])
-    session[:cart].each do |item|
-      @lineItem = LineItem.new(@order.id, @user.id)
-      @lineItem.save
-    end
+    @user = User.new(user_params)
     @user.save
+    @order = Order.new(user_id: @user.id, price: session[:price])
     @order.save
+    session[:cart].each do |item|
+      @line_item = LineItem.new(order_id: @order.id, item_id: item)
+      @line_item.save
+    end
+
     session.destroy
     redirect_to :index
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name,
+                                 :address,
+                                 :city,
+                                 :country,
+                                 :postal_code)
   end
 end
