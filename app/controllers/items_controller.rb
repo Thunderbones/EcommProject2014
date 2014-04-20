@@ -64,7 +64,7 @@ class ItemsController < ApplicationController
     end
 
     session.destroy
-    redirect_to :index
+    redirect_to :index, notice: 'Order Received.'
   end
 
   private
