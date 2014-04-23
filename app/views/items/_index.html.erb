@@ -1,4 +1,5 @@
 <%= paginate @items %>
+<p class="notice"><%= notice %></p>
 <% if(@items.size < 1) %>
   <p class="item">No Items</p>
 <% else %>
@@ -9,3 +10,5 @@
     </div>
   <% end %>
 <% end %>
+<%= link_to 'About', 'page/about' %>
+<%= link_to 'Contact', 'page/contact' %>

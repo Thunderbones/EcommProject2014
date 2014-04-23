@@ -1,6 +1,8 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$basic-border: 1px solid black;
+
 .left
 {
   float:left;
@@ -16,7 +18,7 @@
 }
 .item
 {
-  border: 1px solid black;
+  border: $basic-border;
   width: 400px;
   height: 20px;
   padding: 5px;
@@ -34,5 +36,23 @@ tbody
   label
   {
     text-align: right;
+  }
+}
+#user_keywords
+{
+  width: 250px;
+}
+#my_options
+{
+  height: 30px;
+}
+#searchBar
+{
+  label
+  {
+    background-color: grey;
+    border: $basic-border;
+    margin-right: 5px;
+    padding: 7px;
   }
 }

@@ -19,6 +19,8 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'kaminari'
 
+gem 'country_select'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

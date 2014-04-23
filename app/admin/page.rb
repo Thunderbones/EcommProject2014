@@ -1,11 +1,9 @@
-ActiveAdmin.register Category do
+ActiveAdmin.register Page do
 
   # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin
-  # /blob/master/docs/2-resource-customization.md
-  # #setting-up-strong-parameters
+  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :name
+  permit_params :name, :title, :text
   #
   # or
   #
@@ -14,5 +12,5 @@ ActiveAdmin.register Category do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-
+  
 end

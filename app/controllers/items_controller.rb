@@ -55,16 +55,25 @@ class ItemsController < ApplicationController
 
   def create_order
     @user = User.new(user_params)
-    @user.save
-    @order = Order.new(user_id: @user.id, price: session[:price])
-    @order.save
-    session[:cart].each do |item|
-      @line_item = LineItem.new(order_id: @order.id, item_id: item)
-      @line_item.save
-    end
+    if (!@user.save)
+      redirect_to :view_cart, notice: 'You must insert additional details.'
+    else
+      @order = Order.new(user_id: @user.id, price: session[:price])
+      @order.save
+      session[:cart].each do |item|
+        @line_item = LineItem.new(order_id: @order.id, item_id: item)
+       @line_item.save
+     end
 
     session.destroy
     redirect_to :index, notice: 'Order Received.'
+    end
+    
+  end
+  
+  def page
+    @page = Page.where('name LIKE ?', params[:name]).first
+    render 'shared/page'
   end
 
   private
